@@ -16,5 +16,27 @@ namespace HastaYonetimSistemi_HYS.Forms
         {
             InitializeComponent();
         }
+
+        private void pcExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pcDoctor_Click(object sender, EventArgs e)
+        {
+            Forms.DoctorManage frm = new DoctorManage();
+            frm.Show();
+            this.Hide();
+        }
+
+        private void pcPatient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pcDiagnosis_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
