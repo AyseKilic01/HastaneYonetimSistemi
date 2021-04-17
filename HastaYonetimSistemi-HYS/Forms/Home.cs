@@ -8,20 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HastaYonetimSistemi_HYS
+namespace HastaYonetimSistemi_HYS.Forms
 {
-    public partial class frmBeg : Form
+    public partial class Home : Form
     {
-        public frmBeg()
+        public Home()
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            Forms.Home frm = new Forms.Home();
-            frm.Show();
-            this.Hide();
         }
     }
 }
