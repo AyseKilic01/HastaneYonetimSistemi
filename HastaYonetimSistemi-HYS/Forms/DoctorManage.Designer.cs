@@ -33,6 +33,11 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.listDoctor = new System.Windows.Forms.ListView();
+            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnSoyad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnSifre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDeneyim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtDeneyim = new DevExpress.XtraEditors.TextEdit();
             this.txtSoyad = new DevExpress.XtraEditors.TextEdit();
             this.txtSifre = new DevExpress.XtraEditors.TextEdit();
@@ -49,12 +54,8 @@
             this.btnEkle = new DevExpress.XtraEditors.SimpleButton();
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
             this.btnHome = new DevExpress.XtraEditors.SimpleButton();
-            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnAd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnSoyad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnSifre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnDeneyim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeneyim.Properties)).BeginInit();
@@ -116,13 +117,44 @@
             this.columnSifre,
             this.columnDeneyim});
             this.listDoctor.Font = new System.Drawing.Font("Georgia", 10.8F);
+            this.listDoctor.FullRowSelect = true;
             this.listDoctor.HideSelection = false;
+            this.listDoctor.HoverSelection = true;
             this.listDoctor.Location = new System.Drawing.Point(540, 210);
             this.listDoctor.Name = "listDoctor";
             this.listDoctor.Size = new System.Drawing.Size(735, 345);
             this.listDoctor.TabIndex = 1;
             this.listDoctor.UseCompatibleStateImageBehavior = false;
             this.listDoctor.View = System.Windows.Forms.View.Details;
+            this.listDoctor.Click += new System.EventHandler(this.listDoctor_Click);
+            // 
+            // columnID
+            // 
+            this.columnID.Width = 0;
+            // 
+            // columnAd
+            // 
+            this.columnAd.Text = "Ad";
+            this.columnAd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnAd.Width = 136;
+            // 
+            // columnSoyad
+            // 
+            this.columnSoyad.Text = "Soyad";
+            this.columnSoyad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnSoyad.Width = 139;
+            // 
+            // columnSifre
+            // 
+            this.columnSifre.Text = "Şifre";
+            this.columnSifre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnSifre.Width = 135;
+            // 
+            // columnDeneyim
+            // 
+            this.columnDeneyim.Text = "Deneyim";
+            this.columnDeneyim.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnDeneyim.Width = 130;
             // 
             // txtDeneyim
             // 
@@ -132,7 +164,7 @@
             this.txtDeneyim.Properties.Appearance.Options.UseFont = true;
             this.txtDeneyim.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtDeneyim.Size = new System.Drawing.Size(215, 26);
-            this.txtDeneyim.TabIndex = 18;
+            this.txtDeneyim.TabIndex = 4;
             // 
             // txtSoyad
             // 
@@ -142,7 +174,7 @@
             this.txtSoyad.Properties.Appearance.Options.UseFont = true;
             this.txtSoyad.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtSoyad.Size = new System.Drawing.Size(215, 26);
-            this.txtSoyad.TabIndex = 14;
+            this.txtSoyad.TabIndex = 2;
             // 
             // txtSifre
             // 
@@ -152,7 +184,7 @@
             this.txtSifre.Properties.Appearance.Options.UseFont = true;
             this.txtSifre.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtSifre.Size = new System.Drawing.Size(215, 26);
-            this.txtSifre.TabIndex = 16;
+            this.txtSifre.TabIndex = 3;
             // 
             // txtAd
             // 
@@ -162,7 +194,7 @@
             this.txtAd.Properties.Appearance.Options.UseFont = true;
             this.txtAd.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtAd.Size = new System.Drawing.Size(215, 26);
-            this.txtAd.TabIndex = 13;
+            this.txtAd.TabIndex = 1;
             // 
             // labelControl11
             // 
@@ -249,12 +281,13 @@
             this.btnGuncelle.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGuncelle.Appearance.Options.UseFont = true;
             this.btnGuncelle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGuncelle.ImageOptions.Image")));
-            this.btnGuncelle.Location = new System.Drawing.Point(192, 455);
+            this.btnGuncelle.Location = new System.Drawing.Point(163, 455);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnGuncelle.Size = new System.Drawing.Size(140, 39);
-            this.btnGuncelle.TabIndex = 25;
+            this.btnGuncelle.TabIndex = 6;
             this.btnGuncelle.Text = "Güncelle";
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
@@ -264,61 +297,35 @@
             this.btnEkle.Location = new System.Drawing.Point(46, 455);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnEkle.Size = new System.Drawing.Size(140, 39);
-            this.btnEkle.TabIndex = 23;
+            this.btnEkle.Size = new System.Drawing.Size(111, 39);
+            this.btnEkle.TabIndex = 5;
             this.btnEkle.Text = "Ekle";
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnSil
             // 
             this.btnSil.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.Appearance.Options.UseFont = true;
             this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
-            this.btnSil.Location = new System.Drawing.Point(338, 455);
+            this.btnSil.Location = new System.Drawing.Point(309, 455);
             this.btnSil.Name = "btnSil";
             this.btnSil.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.btnSil.Size = new System.Drawing.Size(140, 39);
-            this.btnSil.TabIndex = 24;
+            this.btnSil.Size = new System.Drawing.Size(86, 39);
+            this.btnSil.TabIndex = 7;
             this.btnSil.Text = "Sil";
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnHome
             // 
             this.btnHome.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnHome.Appearance.Options.UseFont = true;
-            this.btnHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnHome.Location = new System.Drawing.Point(192, 516);
+            this.btnHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.ImageOptions.Image")));
+            this.btnHome.Location = new System.Drawing.Point(163, 516);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnHome.Size = new System.Drawing.Size(59, 39);
-            this.btnHome.TabIndex = 26;
+            this.btnHome.TabIndex = 8;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // columnID
-            // 
-            this.columnID.Width = 0;
-            // 
-            // columnAd
-            // 
-            this.columnAd.Text = "Ad";
-            this.columnAd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnAd.Width = 136;
-            // 
-            // columnSoyad
-            // 
-            this.columnSoyad.Text = "Soyad";
-            this.columnSoyad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnSoyad.Width = 139;
-            // 
-            // columnSifre
-            // 
-            this.columnSifre.Text = "Şifre";
-            this.columnSifre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnSifre.Width = 135;
-            // 
-            // columnDeneyim
-            // 
-            this.columnDeneyim.Text = "Deneyim";
-            this.columnDeneyim.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnDeneyim.Width = 130;
             // 
             // labelControl19
             // 
@@ -335,11 +342,25 @@
             this.labelControl19.TabIndex = 69;
             this.labelControl19.Text = "Doktor Bilgileri";
             // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTemizle.Appearance.Options.UseFont = true;
+            this.btnTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnTemizle.Location = new System.Drawing.Point(244, 516);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btnTemizle.Size = new System.Drawing.Size(59, 39);
+            this.btnTemizle.TabIndex = 70;
+            this.btnTemizle.UseWaitCursor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
             // DoctorManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1303, 599);
+            this.Controls.Add(this.btnTemizle);
             this.Controls.Add(this.labelControl19);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnGuncelle);
@@ -364,6 +385,7 @@
             this.Name = "DoctorManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorManage";
+            this.Load += new System.EventHandler(this.DoctorManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -404,5 +426,6 @@
         private System.Windows.Forms.ColumnHeader columnSifre;
         private System.Windows.Forms.ColumnHeader columnDeneyim;
         private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.SimpleButton btnTemizle;
     }
 }

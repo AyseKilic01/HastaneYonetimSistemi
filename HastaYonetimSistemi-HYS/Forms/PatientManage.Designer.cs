@@ -36,7 +36,7 @@
             this.btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
             this.btnEkle = new DevExpress.XtraEditors.SimpleButton();
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
-            this.listDoctor = new System.Windows.Forms.ListView();
+            this.listPatient = new System.Windows.Forms.ListView();
             this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAd = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnSoyad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,6 +71,7 @@
             this.columnCinsiyet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnKGrubu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTelefon.Properties)).BeginInit();
@@ -131,7 +132,7 @@
             this.btnHome.Appearance.Options.UseFont = true;
             this.btnHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btnHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnHome.Location = new System.Drawing.Point(191, 601);
+            this.btnHome.Location = new System.Drawing.Point(150, 599);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.btnHome.Size = new System.Drawing.Size(53, 39);
@@ -148,6 +149,7 @@
             this.btnGuncelle.Size = new System.Drawing.Size(140, 39);
             this.btnGuncelle.TabIndex = 42;
             this.btnGuncelle.Text = "Güncelle";
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
@@ -160,6 +162,7 @@
             this.btnEkle.Size = new System.Drawing.Size(108, 39);
             this.btnEkle.TabIndex = 40;
             this.btnEkle.Text = "Ekle";
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnSil
             // 
@@ -171,12 +174,13 @@
             this.btnSil.Size = new System.Drawing.Size(91, 39);
             this.btnSil.TabIndex = 41;
             this.btnSil.Text = "Sil";
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // listDoctor
+            // listPatient
             // 
-            this.listDoctor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listDoctor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listDoctor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listPatient.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listPatient.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnID,
             this.columnAd,
             this.columnSoyad,
@@ -186,14 +190,16 @@
             this.columnHastalık,
             this.columnCinsiyet,
             this.columnKGrubu});
-            this.listDoctor.Font = new System.Drawing.Font("Georgia", 10.8F);
-            this.listDoctor.HideSelection = false;
-            this.listDoctor.Location = new System.Drawing.Point(412, 191);
-            this.listDoctor.Name = "listDoctor";
-            this.listDoctor.Size = new System.Drawing.Size(1108, 427);
-            this.listDoctor.TabIndex = 27;
-            this.listDoctor.UseCompatibleStateImageBehavior = false;
-            this.listDoctor.View = System.Windows.Forms.View.Details;
+            this.listPatient.Font = new System.Drawing.Font("Georgia", 10.8F);
+            this.listPatient.FullRowSelect = true;
+            this.listPatient.HideSelection = false;
+            this.listPatient.Location = new System.Drawing.Point(412, 191);
+            this.listPatient.Name = "listPatient";
+            this.listPatient.Size = new System.Drawing.Size(1108, 427);
+            this.listPatient.TabIndex = 27;
+            this.listPatient.UseCompatibleStateImageBehavior = false;
+            this.listPatient.View = System.Windows.Forms.View.Details;
+            this.listPatient.Click += new System.EventHandler(this.listPatient_Click);
             // 
             // columnID
             // 
@@ -519,12 +525,27 @@
             this.labelControl19.TabIndex = 68;
             this.labelControl19.Text = "Hasta Bilgileri";
             // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTemizle.Appearance.Options.UseFont = true;
+            this.btnTemizle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.btnTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTemizle.ImageOptions.Image")));
+            this.btnTemizle.Location = new System.Drawing.Point(231, 599);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.btnTemizle.Size = new System.Drawing.Size(59, 39);
+            this.btnTemizle.TabIndex = 71;
+            this.btnTemizle.UseWaitCursor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
             // PatientManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1571, 671);
-            this.Controls.Add(this.listDoctor);
+            this.Controls.Add(this.btnTemizle);
+            this.Controls.Add(this.listPatient);
             this.Controls.Add(this.labelControl19);
             this.Controls.Add(this.cmbGrup);
             this.Controls.Add(this.cmbCinsiyet);
@@ -560,6 +581,7 @@
             this.Name = "PatientManage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PatientManage";
+            this.Load += new System.EventHandler(this.PatientManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -585,7 +607,7 @@
         private DevExpress.XtraEditors.SimpleButton btnGuncelle;
         private DevExpress.XtraEditors.SimpleButton btnEkle;
         private DevExpress.XtraEditors.SimpleButton btnSil;
-        private System.Windows.Forms.ListView listDoctor;
+        private System.Windows.Forms.ListView listPatient;
         private System.Windows.Forms.ColumnHeader columnID;
         private System.Windows.Forms.ColumnHeader columnAd;
         private System.Windows.Forms.ColumnHeader columnSoyad;
@@ -620,5 +642,6 @@
         private System.Windows.Forms.ColumnHeader columnCinsiyet;
         private System.Windows.Forms.ColumnHeader columnKGrubu;
         private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.SimpleButton btnTemizle;
     }
 }

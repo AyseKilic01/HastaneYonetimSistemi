@@ -39,7 +39,9 @@ namespace HastaYonetimSistemi_HYS.Forms
 
         private void pcDiagnosis_Click(object sender, EventArgs e)
         {
-
+            DiagnosisManage frm = new DiagnosisManage();
+            frm.Show();
+            this.Hide();
         }
     }
 }
