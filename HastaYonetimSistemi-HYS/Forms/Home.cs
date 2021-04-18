@@ -19,7 +19,8 @@ namespace HastaYonetimSistemi_HYS.Forms
 
         private void pcExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Çıkmak istediğinize emin misiniz?", "Hastane Yönetim Sistemi", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Application.Exit();
         }
 
         private void pcDoctor_Click(object sender, EventArgs e)
@@ -31,7 +32,9 @@ namespace HastaYonetimSistemi_HYS.Forms
 
         private void pcPatient_Click(object sender, EventArgs e)
         {
-
+            PatientManage frm = new PatientManage();
+            frm.Show();
+            this.Hide();
         }
 
         private void pcDiagnosis_Click(object sender, EventArgs e)

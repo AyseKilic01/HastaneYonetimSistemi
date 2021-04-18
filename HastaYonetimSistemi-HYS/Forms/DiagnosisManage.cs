@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace HastaYonetimSistemi_HYS.Forms
 {
-    public partial class DoctorManage : Form
+    public partial class DiagnosisManage : Form
     {
-        public DoctorManage()
+        public DiagnosisManage()
         {
             InitializeComponent();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            Home frm = new Home();
-            frm.Show();
-            this.Hide();
         }
     }
 }

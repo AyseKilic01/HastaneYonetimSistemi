@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HastaYonetimSistemi_HYS.Forms
 {
-    public partial class DoctorManage : Form
+    public partial class PatientManage : Form
     {
-        public DoctorManage()
+        public PatientManage()
         {
             InitializeComponent();
         }
