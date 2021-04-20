@@ -16,5 +16,17 @@ namespace HastaYonetimSistemi_HYS.Forms
         {
             InitializeComponent();
         }
+
+        private void loadTimer_Tick(object sender, EventArgs e)
+        {
+            loadTimer.Interval++;
+            if (loadTimer.Interval == 70)
+            {
+                frmBeg frm = new frmBeg();
+                frm.Show();
+                loadTimer.Enabled = false;
+                this.Hide();
+            }
+        }
     }
 }

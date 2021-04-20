@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HastaYonetimSistemi_HYS.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace HastaYonetimSistemi_HYS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBeg());
+            Application.Run(new SplashForm());
         }
     }
 }

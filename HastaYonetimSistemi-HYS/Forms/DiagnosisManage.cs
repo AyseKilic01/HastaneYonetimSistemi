@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using HastaYonetimSistemi_HYS.Entities;
 
 namespace HastaYonetimSistemi_HYS.Forms
@@ -98,24 +99,57 @@ namespace HastaYonetimSistemi_HYS.Forms
             txtIlac.Text = listSonuc.SelectedItems[0].SubItems[4].Text.Trim();
         }
 
-        private void listPatient_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnTemizle_Click(object sender, EventArgs e)
         {
-
+            Temizle();
         }
-
+        bool Control()
+        {
+            if (txtAd.Text != "" && txtBelirti.Text != "" 
+            && txtSonuc.Text != "")
+                return true;
+            return false;
+        }
         private void btnEkle_Click(object sender, EventArgs e)
         {
-
+            if (Control())
+            {
+                TblSonuclar t = new TblSonuclar();
+                t.Ad = txtSonuc.Text;
+                t.Belirtiler = txtBelirti.Text;
+                t.Ilaclar = txtIlac.Text;
+                t.HastaID = int.Parse(txtAd.Text);
+                db.TblSonuclar.Add(t);
+                db.SaveChanges();
+                XtraMessageBox.Show("Yeni Sonuç Eklendi");
+                ListeleSonuc();
+                Temizle();
+            }
+            else
+            {
+                XtraMessageBox.Show("Alanlar boş olamaz !!");
+                Temizle();
+            }
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+            var deger = db.TblSonuclar.Find(id);
+            deger.Ad = txtSonuc.Text;
+            deger.Belirtiler = txtBelirti.Text;
+            deger.Ilaclar = txtIlac.Text;
+            deger.HastaID = int.Parse(txtAd.Text);
+            db.SaveChanges();
+            XtraMessageBox.Show("Güncellendi");
+            ListeleSonuc();
+            Temizle();
+        }
 
+        private void DiagnosisManage_Load(object sender, EventArgs e)
+        {
+            ListeleHasta();
+            ListeleSonuc();
         }
     }
 }

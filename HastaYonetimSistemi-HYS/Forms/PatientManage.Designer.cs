@@ -42,6 +42,10 @@
             this.columnSoyad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAdres = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnYas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHastalık = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnCinsiyet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnKGrubu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtTelefon = new DevExpress.XtraEditors.TextEdit();
             this.txtSoyad = new DevExpress.XtraEditors.TextEdit();
             this.txtAdres = new DevExpress.XtraEditors.TextEdit();
@@ -66,10 +70,6 @@
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.cmbCinsiyet = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbGrup = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.columnYas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHastalık = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnCinsiyet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnKGrubu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -86,7 +86,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Controls.Add(this.labelControl2);
             this.panelControl1.Controls.Add(this.labelControl1);
@@ -103,7 +103,7 @@
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(707, 89);
@@ -117,7 +117,7 @@
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Georgia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Location = new System.Drawing.Point(541, 48);
@@ -131,7 +131,7 @@
             this.btnHome.Appearance.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnHome.Appearance.Options.UseFont = true;
             this.btnHome.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.btnHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnHome.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.ImageOptions.Image")));
             this.btnHome.Location = new System.Drawing.Point(150, 599);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
@@ -228,6 +228,30 @@
             this.columnTel.Text = "Telefon";
             this.columnTel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnTel.Width = 122;
+            // 
+            // columnYas
+            // 
+            this.columnYas.Text = "Yaş";
+            this.columnYas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnYas.Width = 65;
+            // 
+            // columnHastalık
+            // 
+            this.columnHastalık.Text = "Hastalık";
+            this.columnHastalık.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHastalık.Width = 111;
+            // 
+            // columnCinsiyet
+            // 
+            this.columnCinsiyet.Text = "Cinsiyet";
+            this.columnCinsiyet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnCinsiyet.Width = 100;
+            // 
+            // columnKGrubu
+            // 
+            this.columnKGrubu.Text = "Kan Gr.";
+            this.columnKGrubu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnKGrubu.Width = 100;
             // 
             // txtTelefon
             // 
@@ -486,35 +510,11 @@
             this.cmbGrup.Size = new System.Drawing.Size(215, 26);
             this.cmbGrup.TabIndex = 67;
             // 
-            // columnYas
-            // 
-            this.columnYas.Text = "Yaş";
-            this.columnYas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnYas.Width = 65;
-            // 
-            // columnHastalık
-            // 
-            this.columnHastalık.Text = "Hastalık";
-            this.columnHastalık.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHastalık.Width = 111;
-            // 
-            // columnCinsiyet
-            // 
-            this.columnCinsiyet.Text = "Cinsiyet";
-            this.columnCinsiyet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnCinsiyet.Width = 100;
-            // 
-            // columnKGrubu
-            // 
-            this.columnKGrubu.Text = "Kan Gr.";
-            this.columnKGrubu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnKGrubu.Width = 100;
-            // 
             // labelControl19
             // 
-            this.labelControl19.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.labelControl19.Appearance.BackColor = System.Drawing.Color.White;
             this.labelControl19.Appearance.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.labelControl19.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.labelControl19.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.labelControl19.Appearance.Options.UseBackColor = true;
             this.labelControl19.Appearance.Options.UseFont = true;
             this.labelControl19.Appearance.Options.UseForeColor = true;
