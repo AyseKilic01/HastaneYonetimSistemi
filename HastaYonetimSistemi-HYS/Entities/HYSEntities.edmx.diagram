@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="HastaneYonetimSistemiModel.TblDoktor" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HastaneYonetimSistemiModel.TblHasta" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HastaneYonetimSistemiModel.TblSonuclar" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneYonetimSistemiModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="HastaneYonetimSistemiModel.FK_TblSonuclar_TblHasta" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

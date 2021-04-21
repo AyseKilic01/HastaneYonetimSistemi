@@ -33,16 +33,16 @@
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblClear = new DevExpress.XtraEditors.LabelControl();
+            this.cmbName = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -108,21 +108,6 @@
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // txtName
-            // 
-            this.txtName.EditValue = "";
-            this.txtName.Location = new System.Drawing.Point(110, 172);
-            this.txtName.Name = "txtName";
-            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Georgia", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtName.Properties.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Properties.Appearance.Options.UseForeColor = true;
-            this.txtName.Properties.NullText = "D. Adı";
-            this.txtName.Properties.NullValuePrompt = "D. Adı";
-            this.txtName.Properties.NullValuePromptShowForEmptyValue = true;
-            this.txtName.Size = new System.Drawing.Size(230, 28);
-            this.txtName.TabIndex = 2;
-            // 
             // txtPass
             // 
             this.txtPass.EditValue = "";
@@ -169,17 +154,28 @@
             this.lblClear.TabIndex = 6;
             this.lblClear.Text = "Temizle";
             // 
+            // cmbName
+            // 
+            this.cmbName.Location = new System.Drawing.Point(110, 171);
+            this.cmbName.Name = "cmbName";
+            this.cmbName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbName.Properties.Appearance.Options.UseFont = true;
+            this.cmbName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbName.Size = new System.Drawing.Size(230, 28);
+            this.cmbName.TabIndex = 7;
+            // 
             // frmBeg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(434, 450);
+            this.Controls.Add(this.cmbName);
             this.Controls.Add(this.lblClear);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panelControl1);
             this.ForeColor = System.Drawing.Color.Black;
@@ -188,12 +184,13 @@
             this.Name = "frmBeg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hastane Yönetim Sistemi";
+            this.Load += new System.EventHandler(this.frmBeg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,12 +201,12 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
-        private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.TextEdit txtPass;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl lblClear;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        protected DevExpress.XtraEditors.ComboBoxEdit cmbName;
     }
 }
 

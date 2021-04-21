@@ -10,17 +10,13 @@
 namespace HastaYonetimSistemi_HYS.Entities
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class TblSonuclar
+    public partial class sp_helpdiagrams_Result
     {
+        public string Database { get; set; }
+        public string Name { get; set; }
         public int ID { get; set; }
-        public string Ad { get; set; }
-        public string Belirtiler { get; set; }
-        public string Ilaclar { get; set; }
-        public Nullable<System.DateTime> Tarih { get; set; }
-        public Nullable<int> HastaID { get; set; }
-    
-        public virtual TblHasta TblHasta { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

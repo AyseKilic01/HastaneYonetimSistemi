@@ -80,6 +80,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HYSEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>HYSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sp_helpdiagrams_Result.cs">
+      <DependentUpon>HYSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagram.cs">
+      <DependentUpon>HYSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\TblDoktor.cs">
       <DependentUpon>HYSEntities.tt</DependentUpon>
     </Compile>

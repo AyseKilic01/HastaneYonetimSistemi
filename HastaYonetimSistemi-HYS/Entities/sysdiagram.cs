@@ -12,15 +12,12 @@ namespace HastaYonetimSistemi_HYS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class TblSonuclar
+    public partial class sysdiagram
     {
-        public int ID { get; set; }
-        public string Ad { get; set; }
-        public string Belirtiler { get; set; }
-        public string Ilaclar { get; set; }
-        public Nullable<System.DateTime> Tarih { get; set; }
-        public Nullable<int> HastaID { get; set; }
-    
-        public virtual TblHasta TblHasta { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

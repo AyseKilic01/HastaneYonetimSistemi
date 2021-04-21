@@ -14,6 +14,12 @@ namespace HastaYonetimSistemi_HYS.Entities
     
     public partial class TblHasta
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TblHasta()
+        {
+            this.TblSonuclars = new HashSet<TblSonuclar>();
+        }
+    
         public int ID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
@@ -23,5 +29,8 @@ namespace HastaYonetimSistemi_HYS.Entities
         public string Cinsiyet { get; set; }
         public string KanGrubu { get; set; }
         public string Hastalık { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblSonuclar> TblSonuclars { get; set; }
     }
 }

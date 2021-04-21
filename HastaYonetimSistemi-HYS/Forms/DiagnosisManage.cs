@@ -21,63 +21,57 @@ namespace HastaYonetimSistemi_HYS.Forms
         }
         void Temizle()
         {
-            txtAd.Text = "";
+            cmbHasta.SelectedText = "";
             txtBelirti.Text = "";
             txtIlac.Text = "";
             txtSonuc.Text = "";
         }
-        private void ListeleHasta()
+    void configCombos()
         {
-            listPatient.Items.Clear();
-            var degerler = (from x in db.TblHasta
-                            select new
-                            {
-                                x.ID,
-                                x.Ad,
-                                x.Soyad,
-                                x.Adres,
-                                x.Hastalık,
-                                x.Yas,
-                                x.Telefon,
-                                x.KanGrubu,
-                                x.Cinsiyet
-
-                            }).ToList();
-            foreach (var d in degerler)
-            {
-                ListViewItem list = new ListViewItem();
-                list.Text = d.ID.ToString();
-                list.SubItems.Add(d.Ad.ToString());
-                list.SubItems.Add(d.Soyad.ToString());
-                list.SubItems.Add(d.Adres.ToString());
-                list.SubItems.Add(d.Telefon.ToString());
-                list.SubItems.Add(d.Yas.ToString());
-                list.SubItems.Add(d.Hastalık.ToString());
-                list.SubItems.Add(d.Cinsiyet.ToString());
-                list.SubItems.Add(d.KanGrubu.ToString());
-                listPatient.Items.Add(list);
-            }
+            var hasta = (from i in db.TblHasta
+                         select new
+                         {
+                             i.ID,
+                             i.Ad
+                         }).ToList();
+            cmbHasta.Properties.DisplayMember = "Ad";
+            cmbHasta.Properties.ValueMember = "ID";
+            cmbHasta.Properties.DataSource = hasta;
+            
         }
-    
+
     private void ListeleSonuc()
     {
         listSonuc.Items.Clear();
         var degerler = (from x in db.TblSonuclar
+                        join y in db.TblHasta
+                        on x.HastaID equals y.ID
                         select new
                         {
                             x.ID,
+                            hastaAdi = y.Ad,
                             x.Ad,
                             x.HastaID,
                             x.Ilaclar,
                             x.Belirtiler
 
                         }).ToList();
-        foreach (var d in degerler)
-        {
+            var hasta = (from x in db.TblHasta
+                            select new
+                            {
+                               HastaID = x.ID,
+                               x.Ad
+                               
+
+                            }).ToList();
+
+           
+            foreach (var d in degerler)
+        {            
             ListViewItem list = new ListViewItem();
             list.Text = d.ID.ToString();
             list.SubItems.Add(d.Ad.ToString());
-            list.SubItems.Add(d.HastaID.ToString());
+            list.SubItems.Add(d.hastaAdi.ToString());
             list.SubItems.Add(d.Ilaclar.ToString());
             list.SubItems.Add(d.Belirtiler.ToString());
             listSonuc.Items.Add(list);
@@ -93,7 +87,7 @@ namespace HastaYonetimSistemi_HYS.Forms
         private void listSonuc_Click(object sender, EventArgs e)
         {
             id = int.Parse(listSonuc.SelectedItems[0].SubItems[0].Text);
-            txtAd.Text = listSonuc.SelectedItems[0].SubItems[1].Text.Trim();
+            listSonuc.Text = listSonuc.SelectedItems[0].SubItems[1].Text.Trim();
             txtSonuc.Text = listSonuc.SelectedItems[0].SubItems[2].Text.Trim();
             txtBelirti.Text = listSonuc.SelectedItems[0].SubItems[3].Text.Trim();
             txtIlac.Text = listSonuc.SelectedItems[0].SubItems[4].Text.Trim();
@@ -106,7 +100,7 @@ namespace HastaYonetimSistemi_HYS.Forms
         }
         bool Control()
         {
-            if (txtAd.Text != "" && txtBelirti.Text != "" 
+            if (cmbHasta.Text != "" && txtBelirti.Text != "" 
             && txtSonuc.Text != "")
                 return true;
             return false;
@@ -119,7 +113,7 @@ namespace HastaYonetimSistemi_HYS.Forms
                 t.Ad = txtSonuc.Text;
                 t.Belirtiler = txtBelirti.Text;
                 t.Ilaclar = txtIlac.Text;
-                t.HastaID = int.Parse(txtAd.Text);
+                t.HastaID = int.Parse(cmbHasta.EditValue.ToString());
                 db.TblSonuclar.Add(t);
                 db.SaveChanges();
                 XtraMessageBox.Show("Yeni Sonuç Eklendi");
@@ -139,7 +133,7 @@ namespace HastaYonetimSistemi_HYS.Forms
             deger.Ad = txtSonuc.Text;
             deger.Belirtiler = txtBelirti.Text;
             deger.Ilaclar = txtIlac.Text;
-            deger.HastaID = int.Parse(txtAd.Text);
+            deger.HastaID = int.Parse(cmbHasta.EditValue.ToString());
             db.SaveChanges();
             XtraMessageBox.Show("Güncellendi");
             ListeleSonuc();
@@ -148,8 +142,8 @@ namespace HastaYonetimSistemi_HYS.Forms
 
         private void DiagnosisManage_Load(object sender, EventArgs e)
         {
-            ListeleHasta();
             ListeleSonuc();
+            configCombos();
         }
     }
 }
