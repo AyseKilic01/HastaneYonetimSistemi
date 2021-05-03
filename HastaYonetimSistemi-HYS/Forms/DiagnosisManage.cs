@@ -56,22 +56,13 @@ namespace HastaYonetimSistemi_HYS.Forms
                             x.Belirtiler
 
                         }).ToList();
-            var hasta = (from x in db.TblHasta
-                            select new
-                            {
-                               HastaID = x.ID,
-                               x.Ad
-                               
-
-                            }).ToList();
-
            
             foreach (var d in degerler)
         {            
             ListViewItem list = new ListViewItem();
             list.Text = d.ID.ToString();
-            list.SubItems.Add(d.Ad.ToString());
             list.SubItems.Add(d.hastaAdi.ToString());
+            list.SubItems.Add(d.Ad.ToString());
             list.SubItems.Add(d.Ilaclar.ToString());
             list.SubItems.Add(d.Belirtiler.ToString());
             listSonuc.Items.Add(list);
@@ -87,7 +78,7 @@ namespace HastaYonetimSistemi_HYS.Forms
         private void listSonuc_Click(object sender, EventArgs e)
         {
             id = int.Parse(listSonuc.SelectedItems[0].SubItems[0].Text);
-            listSonuc.Text = listSonuc.SelectedItems[0].SubItems[1].Text.Trim();
+            cmbHasta.Text = listSonuc.SelectedItems[0].SubItems[1].Text.Trim();
             txtSonuc.Text = listSonuc.SelectedItems[0].SubItems[2].Text.Trim();
             txtBelirti.Text = listSonuc.SelectedItems[0].SubItems[3].Text.Trim();
             txtIlac.Text = listSonuc.SelectedItems[0].SubItems[4].Text.Trim();
